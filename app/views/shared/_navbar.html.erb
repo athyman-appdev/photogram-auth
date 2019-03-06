@@ -10,27 +10,29 @@
 
     <div class="collapse navbar-collapse" id="collapsible-nav-links">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Resources
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a href="/comments" class="dropdown-item">
-              Comments
-            </a>
-            <a href="/likes" class="dropdown-item">
-              Likes
-            </a>
-            <a href="/photos" class="dropdown-item">
-              Photos
-            </a>
-          </div>
-        </li>
         <li class="nav-item">
           <a href="/users" class="nav-link">
-              Users
+              All Users
             </a>
         </li>
+        <li class="nav-item">
+          <a href="/photos" class="nav-link">
+              All Posts
+            </a>
+        </li>
+        <li class="nav-item">
+          <a href="/my_likes" class="nav-link">
+              My Likes
+            </a>
+        </li>
+        <% if current_user.blank? %>
+        <% else %>
+        <li class="nav-item">
+          <a href="/users/<%= current_user.id %>" class="nav-link">
+              My Wall
+            </a>
+        </li>
+        <% end %>
       </ul>
       <ul class="navbar-nav">
         <% if current_user.blank? %>

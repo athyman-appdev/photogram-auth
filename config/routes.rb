@@ -80,4 +80,22 @@ Rails.application.routes.draw do
   # DELETE
   #get("/delete_comment/:id_to_remove", { :controller => "comments", :action => "destroy_row" })
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  
+  # Routes for the My Likes resource
+  
+  # CREATE
+  #get("/comments/new", { :controller => "comments", :action => "new_form" })
+  #post("/create_comment", { :controller => "comments", :action => "create_row" })
+
+  # READ
+  get("/my_likes", { :controller => "my_likes", :action => "index" })
+  get("/my_likes/:id", { :controller => "my_likes", :action => "show" })
+
+  # UPDATE
+  #get("/comments/:prefill_with_id/edit", { :controller => "comments", :action => "edit_form" })
+  #post("/update_comment/:id_to_modify", { :controller => "comments", :action => "update_row" })
+
+  # DELETE
+  #get("/delete_comment/:id_to_remove", { :controller => "comments", :action => "destroy_row" })
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

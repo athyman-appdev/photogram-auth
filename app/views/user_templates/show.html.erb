@@ -4,4 +4,21 @@
             <%= @user.username %>
         </h1>
     </div>
+    <div class="card mt-3 mb-5">
+        <div class="card-header">
+            <a href="/users/<%= @user.id %>/"><%= @user.username %></a>
+        </div>
+        <div class="card-body">
+            <ul class="list-group">
+                <% @user.photos.each do |photo| %>
+                  <li class="list-group-item">
+                    <a href="/photos/<%= photo.id %>"><img src="<%= photo.image %>" width="100%"></a>
+                  </li>
+                  <li class="list-group-item">
+                    <%= photo.caption %>
+                  </li>
+                <% end %>
+            </ul>
+        </div>
+    </div>
 </div>
