@@ -2,14 +2,18 @@ class MyLikesController < ApplicationController
   def index
     @likes = Like.all
     
-    @my_likes = @likes.where()
+    @user = current_user
+    
+    @photos = Photo.all
+    
+    @my_likes = @user.liked_photos
 
-    render("like_templates/index.html.erb")
+    render("my_like_templates/show.html.erb")
   end
 
   def show
     @like = Like.find(params.fetch("id_to_display"))
 
-    render("like_templates/show.html.erb")
+    render("my_like_templates/show.html.erb")
   end
 end

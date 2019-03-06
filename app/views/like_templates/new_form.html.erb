@@ -7,13 +7,7 @@
 
 <form action="/create_like" method="post">
 
-  <div class="form-group">
-    <label for="user_id">
-      User
-    </label>
-
-    <input type="text" id="user_id" name="user_id" class="form-control">
-  </div>
+  <input type="hidden" id="user_id" name="user_id" value="<%= current_user.id %>">
 
   <div class="form-group">
     <label for="photo_id">
