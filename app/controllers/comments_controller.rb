@@ -32,6 +32,22 @@ class CommentsController < ApplicationController
       render("comment_templates/new_form_with_errors.html.erb")
     end
   end
+  
+  def quick_create_row
+    @comment = Comment.new
+
+    @comment.photo_id = params.fetch("photo_id")
+    @comment.body = params.fetch("body")
+    @comment.user_id = params.fetch("user_id")
+
+    if @comment.valid?
+      @comment.save
+
+      redirect_back(:fallback_location => "/comments", :notice => "Comment created successfully.")
+    else
+      render("comment_templates/new_form_with_errors.html.erb")
+    end
+  end
 
   def edit_form
     @comment = Comment.find(params.fetch("prefill_with_id"))

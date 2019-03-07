@@ -11,28 +11,28 @@
     <div class="collapse navbar-collapse" id="collapsible-nav-links">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a href="/users" class="nav-link">
-              All Users
-            </a>
+          <a class="nav-link" href="/users">
+            <i class="fas fa-users"></i>
+             <span class="hidden-sm">All Users</span></a>
         </li>
         <li class="nav-item">
-          <a href="/photos" class="nav-link">
-              All Posts
-            </a>
-        </li>
+          <a class="nav-link" href="/photos">
+            <i class="fas fa-images"></i>
+            <span class="hidden-sm">All Posts</span></a>
+          </li>
         <li class="nav-item">
-          <a href="/my_likes" class="nav-link">
-              My Likes
-            </a>
+          <a class="nav-link" href="/my_likes">
+            <i class="fas fa-star"></i>
+             <span class="hidden-sm">My Likes</span></a>
         </li>
         <% if current_user.blank? %>
         <% else %>
-        <li class="nav-item">
-          <a href="/users/<%= current_user.id %>" class="nav-link">
-              My Wall
-            </a>
-        </li>
-        <% end %>
+          <li class="nav-item">
+            <a class="nav-link" href="/users/<%= current_user.id %>">
+              <i class="fas fa-user"></i>
+              <span class="hidden-sm">My Wall</span></a>
+          </li>
+          <% end %>
       </ul>
       <ul class="navbar-nav">
         <% if current_user.blank? %>

@@ -3,6 +3,7 @@ class UsersController < ApplicationController
        @users = User.all
        render("user_templates/index.html.erb")
    end
+   
    def show
        @user = User.find(params.fetch("id"))
        

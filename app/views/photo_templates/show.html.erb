@@ -3,14 +3,18 @@
     <h1>
       Photo #<%= @photo.id %> details
     </h1>
-
+    <div>
+      <a href="/photos/new" class="btn btn-block btn-outline-secondary">
+        Add photo
+      </a>
+    </div>
     <div class="row mb-3">
       <div class="col">
         <a href="/photos" class="btn btn-block btn-outline-secondary">
           Go back
         </a>
       </div>
-
+      <% if @photo.user_id == current_user.id %>
       <div class="col">
         <a href="/photos/<%= @photo.id %>/edit" class="btn btn-block btn-outline-secondary">
           Edit photo
@@ -22,6 +26,8 @@
           Delete photo
         </a>
       </div>
+      <% else %>
+      <% end %>
     </div>
 
     <dl>

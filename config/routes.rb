@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
 
-  devise_for :users
-  
   root "photos#index"
   
+  devise_for :users
   # Routes for the Comment resource
   
   # CREATE
   get("/comments/new", { :controller => "comments", :action => "new_form" })
   post("/create_comment", { :controller => "comments", :action => "create_row" })
+  post("/quick_create_comment", { :controller => "comments", :action => "quick_create_row" })
 
   # READ
   get("/comments", { :controller => "comments", :action => "index" })
@@ -61,12 +61,12 @@ Rails.application.routes.draw do
 
   #------------------------------
 
-
+  
   
   # Routes for the User resource
   
   # CREATE
-  #get("/comments/new", { :controller => "comments", :action => "new_form" })
+  #get("/users/sign_up", { :controller => "users", :action => "new_form" })
   #post("/create_comment", { :controller => "comments", :action => "create_row" })
 
   # READ
@@ -98,4 +98,8 @@ Rails.application.routes.draw do
   # DELETE
   #get("/delete_comment/:id_to_remove", { :controller => "comments", :action => "destroy_row" })
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  
+  
+  
+  
 end
